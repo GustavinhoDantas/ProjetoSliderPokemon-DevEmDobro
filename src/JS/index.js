@@ -27,19 +27,19 @@ function mostrarCartao(indiceCartao) {
 }
 
 btnAvancar.addEventListener("click", function () {
-  if (cartaoAtual === cartoes.length - 1) return;
-
   esconderCartaoSelecionado();
 
-  cartaoAtual++;
+  // Se estiver no último, volta para o primeiro
+  cartaoAtual = (cartaoAtual + 1) % cartoes.length;
+
   mostrarCartao(cartaoAtual);
 });
 
 btnVoltar.addEventListener("click", function () {
-  if (cartaoAtual === 0) return;
-
   esconderCartaoSelecionado();
 
-  cartaoAtual--;
+  // Se estiver no primeiro, vai para o último
+  cartaoAtual = (cartaoAtual - 1 + cartoes.length) % cartoes.length;
+
   mostrarCartao(cartaoAtual);
 });
